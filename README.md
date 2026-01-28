@@ -49,11 +49,17 @@ Repository Structure
 SQL-1000-Queries/
 │
 ├── Day01_SQL_Basics_Q1-Q10.sql
+
 ├── Day02_Where_Conditions_Q11-Q20.sql
+
 ├── Day03_OrderBy_Distinct_Limit_Q21-Q30.sql
+
 ├── Day04_Aggregate_Functions_Q31-Q40.sql
+
 │ ...
+
 │ ...
+
 ├── Day100_Advanced_SQL_Q991-Q1000.sql
 │
 └── README.md
