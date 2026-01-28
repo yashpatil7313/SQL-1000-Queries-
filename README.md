@@ -48,6 +48,7 @@ Advanced & Real‑World SQL Queries
 Repository Structure
 SQL-1000-Queries/
 │
+
 ├── Day01_SQL_Basics_Q1-Q10.sql
 
 ├── Day02_Where_Conditions_Q11-Q20.sql
