@@ -37,7 +37,7 @@ HAVING COUNT(*) > 3;
 SELECT department, SUM(salary) AS total_salary
 FROM employee
 GROUP BY department
-HAVING Salary > 100000;
+HAVING SUM(salary) > 100000;
 
 -- Q48: Display departments with average salary greater than 40000
 SELECT department, AVG(salary) AS avg_salary
