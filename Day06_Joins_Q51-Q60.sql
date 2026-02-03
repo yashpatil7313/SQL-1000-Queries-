@@ -10,19 +10,19 @@
 SELECT e.emp_name,d.department
 FROM employee e
 INNER JOIN department d
-ON e.employee = d.department
+ON e.department = d.department;
 
 -- Q52: Display all employees with their department (LEFT JOIN)
 SELECT e.emp_name,d.department
 FROM employee e
 LEFT JOIN department d
-ON e.employee = d.department
+ON e.department = d.department;
 
 -- Q53: Display all departments with employees (RIGHT JOIN)
 SELECT e.emp_name,d.department
 FROM employee e
 RIGHT JOIN department d
-ON e.department = d.department
+ON e.department = d.department;
 
 -- Q54: Display employees working in IT department
 SELECT e.emp_name,d.department
@@ -46,6 +46,33 @@ ON e.department = d.department
 ORDER BY e.salary DESC;
 
 -- Q57: Display total salary department-wise using JOIN
+SELECT d.department,sum(e.salary) AS total_salary
+FROM employee e
+INNER JOIN department d
+ON e.department = d.department
+GROUP BY d.department
+
+-- Q58: Display departments having more than 2 employees
+SELECT d.department, COUNT(e.emp_id) AS total_employees
+FROM employee e
+INNER JOIN department d
+ON e.department = d.department
+GROUP BY d.department
+HAVING COUNT(e.emp_id) > 2;
+
+-- Q59: Display employees who do not belong to any department
+SELECT e.emp_name
+FROM employee e
+LEFT JOIN department d
+ON e.department = d.department
+WHERE d.department IS NULL;
+
+-- Q60: Display departments with no employees
+SELECT d.department
+FROM employee e
+RIGHT JOIN department d
+ON e.department = d.department
+WHERE e.emp_id IS NULL;
 
 
 
