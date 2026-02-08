@@ -49,6 +49,65 @@ WHERE department IN (
     HAVING COUNT(*) > 2
 );
 
+-- Q66: Display employees whose salary is greater than the minimum salary
+SELECT * 
+FROM employee
+WHERE salary > (
+    SELECT MIN(salary)
+    FROM employee
+);
+
+-- Q67: Display employees who do not earn the maximum salary
+SELECT *
+FROM employee
+WHERE salary <> (
+    SELECT MAX(salary)
+    FROM employee
+);
+
+-- Q68: Display employees who work in the department with the highest average salary
+SELECT * 
+FROM employee
+WHERE department = (
+    SELECT department 
+    FROM employee
+    GROUP BY department
+    ORDER BY AVG(salary) DESC
+    LIMIT 1
+);
+
+-- Q69: Display employees who earn more than all employees in HR department
+SELECT *
+FROM employee
+WHERE salary > ALL (
+    SELECT salary
+    FROM employee
+    WHERE department = 'HR'
+);
+
+-- Q70: Display employees whose salary is equal to the second highest salary
+SELECT *
+FROM employee
+WHERE salary = (
+    SELECT MAX(salary)
+    FROM employee
+    WHERE salary < (
+        SELECT MAX(salary)
+        FROM employee
+    )
+);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
